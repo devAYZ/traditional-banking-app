@@ -7,3 +7,5 @@ import UIKit
 
  Bank Customer: An individual that has owns an account with the bank.
  */
+
+// Public functions are available in the converting.swift
