@@ -9,3 +9,42 @@ import UIKit
  */
 
 // Public functions are available in the converting.swift
+
+// Mark: create Account class
+class Account{
+    
+    // declear the properties for Account class
+    var id: Int
+    var customerId: Int
+    var accountBalance: Int
+    var interestRate: Double
+    
+    // initialize Account  properties (with account balance in koko)
+    init(id: Int, customerId: Int, accountBalance: Int, interestRate: Double){
+        self.id = id; self.customerId = customerId; self.accountBalance = accountBalance; self.interestRate = interestRate
+    }
+
+    //create four (4) method for Account class
+    // remove withdrawal for balance
+    func withdrawal(amount: Int) -> Int{
+        accountBalance -= toKobo(amount)
+        return toNaira(accountBalance)
+    }
+    // add deposit to balance
+    func deposit(amount: Int) -> Int{
+        accountBalance += toKobo(amount)
+        return toNaira(accountBalance)
+    }
+    // remove 100naira as charge
+    func charge() -> Int{
+        let charge = 100
+        accountBalance -= toKobo(charge)
+        return toNaira(accountBalance)
+    }
+    // add 10naira as bonus
+    func bonus() -> Int{
+        let bonus = 10
+        accountBalance += toKobo(bonus)
+        return toNaira(accountBalance)
+    }
+}
