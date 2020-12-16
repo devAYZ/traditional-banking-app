@@ -72,7 +72,6 @@ class CurrentAccount: Account{
     
     // override the interest property, set to 5%
     override var interestRate: Double{
-        // james plug
         set{}
         get{
             let fivePercent = 0.05
@@ -84,5 +83,63 @@ class CurrentAccount: Account{
         accountBalance -= toKobo(amount)
         return charge()
     }
+}
+
+// Mark: create Bank Customer class
+class Customer{
+    
+    // create Customer properties, (5 properties)
+    var id: Int
+    var name: String
+    var address: String
+    var phoneNumber: String
+    var optionalAccounts: [Account]?
+    
+    // initialize Customer properties (5 properties initialization)
+    init(id: Int, name: String, address: String, phoneNumber: String, optionalAccounts: [Account]?){
+        self.id = id
+        self.name = name
+        self.address = address
+        self.phoneNumber = phoneNumber
+        self.optionalAccounts = optionalAccounts
+    }
+
+    // create Customers method (5 method)
+    // show the account balance
+    func accountBalance(account: Account) -> Int{
+        toNaira(account.accountBalance)
+    }
+    // remove withdrawal amount from balance
+    func withdrawal(account: Account, amount: Int) -> Int{
+        account.accountBalance -= toKobo(amount)
+        return toNaira(account.accountBalance)
+    }
+    // add deposit amount to balance
+    func deposit(account: Account, amount: Int) -> Int{
+        account.accountBalance += toKobo(amount)
+        return toNaira(account.accountBalance)
+    }
+    // open account for either saving ot current
+    func openAccount(openType: AccountType) -> [Account]?{
+        // check if open type is savings, then open
+        if openType == AccountType.savings {
+            let newSavings = SavingsAccount(id: 1, customerId: 1, accountBalance: 20000, interestRate: 5.0)
+            optionalAccounts?.append(newSavings)
+        } else if openType == AccountType.current{
+            let newCurrent = CurrentAccount(id: 1, customerId: 1, accountBalance: 30000, interestRate: 5.0)
+            optionalAccounts?.append(newCurrent)
+        }
+        return optionalAccounts
+    }
+    func closeAccount(account: Account) -> [Account]?{
+        optionalAccounts?.removeLast()
+        return optionalAccounts
+    }
+}
+
+// Mark: create enum (with two (2) cases
+enum AccountType{
+    case savings
+    case current
 }
 
