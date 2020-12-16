@@ -66,3 +66,23 @@ class SavingsAccount: Account{
         return bonus()
     }
 }
+
+// Mark: create the CurrentAccount subclass inheriting from Account class
+class CurrentAccount: Account{
+    
+    // override the interest property, set to 5%
+    override var interestRate: Double{
+        // james plug
+        set{}
+        get{
+            let fivePercent = 0.05
+            return fivePercent
+        }
+    }
+    // override the withdrawal method, call charge method after each withdrawal
+    override func withdrawal(amount: Int) -> Int{
+        accountBalance -= toKobo(amount)
+        return charge()
+    }
+}
+
