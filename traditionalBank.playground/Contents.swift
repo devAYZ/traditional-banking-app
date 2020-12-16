@@ -172,3 +172,27 @@ customerObjectTest1.openAccount(openType: AccountType.current)
 
 // 4. Perform all methods on customer object and confirm if the returned result is the expected result.
     // Above are 4i , 4ii, 4iii, 4iv (inside the scope of Openaccount)
+
+// 5. Point out where you applied the pillars of OOP.
+/*
+ INHERITANCE:
+ The SavingsAccount class is also a sub-class of the Account class,
+ hence it can copies all the properties from the parent-class
+ This is Inheritance
+ 
+ POLYMORPHISM:
+ The CurrentAccount is a class and also a sub-class to Account class, since it will inherit from the Account class
+ it then can behave (using its properties and method) as itself as a class, and also behave as the Account class
+ This is Polymorphism
+ 
+ ENCAPSULATION:
+ The Customer class keeps and wrap all its method and properties to itself alone.
+ the properties in the Customer class can only be assessed by the instance of the class
+ any Object trying to access the content of the Customer class must be an instance of it
+ This is Encapsulation
+ 
+ ABSTRACTION:
+ hiding the implenting details, and only showing functionality and required when need is abstraction
+ charge() method, bonus() methos are good example of abstraction here
+ they hide the implenting details and just display the necessary when they are called!!
+*/
