@@ -27,25 +27,25 @@ class Account{
     //create four (4) method for Account class
     // remove withdrawal for balance
     func withdrawal(amount: Int) -> Int{
-        accountBalance -= toKobo(amount)
-        return toNaira(accountBalance)
+        accountBalance -= convertToKobo(amount)
+        return convertToNaira(accountBalance)
     }
     // add deposit to balance
     func deposit(amount: Int) -> Int{
-        accountBalance += toKobo(amount)
-        return toNaira(accountBalance)
+        accountBalance += convertToKobo(amount)
+        return convertToNaira(accountBalance)
     }
     // remove 100naira as charge
     func charge() -> Int{
         let charge = 100
-        accountBalance -= toKobo(charge)
-        return toNaira(accountBalance)
+        accountBalance -= convertToKobo(charge)
+        return convertToNaira(accountBalance)
     }
     // add 10naira as bonus
     func bonus() -> Int{
         let bonus = 10
-        accountBalance += toKobo(bonus)
-        return toNaira(accountBalance)
+        accountBalance += convertToKobo(bonus)
+        return convertToNaira(accountBalance)
     }
 }
 
@@ -62,7 +62,7 @@ class SavingsAccount: Account{
     }
     // override the deposit method, call bonus method after each deposit
     override func deposit(amount: Int) -> Int{
-        accountBalance += toKobo(amount)
+        accountBalance += convertToKobo(amount)
         return bonus()
     }
 }
@@ -80,7 +80,7 @@ class CurrentAccount: Account{
     }
     // override the withdrawal method, call charge method after each withdrawal
     override func withdrawal(amount: Int) -> Int{
-        accountBalance -= toKobo(amount)
+        accountBalance -= convertToKobo(amount)
         return charge()
     }
 }
@@ -107,17 +107,17 @@ class Customer{
     // create Customers method (5 method)
     // show the account balance
     func accountBalance(account: Account) -> Int{
-        toNaira(account.accountBalance)
+        convertToNaira(account.accountBalance)
     }
     // remove withdrawal amount from balance
     func withdrawal(account: Account, amount: Int) -> Int{
-        account.accountBalance -= toKobo(amount)
-        return toNaira(account.accountBalance)
+        account.accountBalance -= convertToKobo(amount)
+        return convertToNaira(account.accountBalance)
     }
     // add deposit amount to balance
     func deposit(account: Account, amount: Int) -> Int{
-        account.accountBalance += toKobo(amount)
-        return toNaira(account.accountBalance)
+        account.accountBalance += convertToKobo(amount)
+        return convertToNaira(account.accountBalance)
     }
     // open account for either saving ot current
     func openAccount(openType: AccountType) -> [Account]?{
