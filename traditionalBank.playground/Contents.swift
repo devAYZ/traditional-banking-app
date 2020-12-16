@@ -148,3 +148,9 @@ enum AccountType{
 // 1. Successfully Created a Customer object
 var customerObjectTest1 = Customer(id: 1, name: "Ayokunle", address: "Iyanapaja", phoneNumber: "07034641582", optionalAccounts: [])
 var customerObjectTest2 = Customer(id: 2, name: "Waheed", address: "Island", phoneNumber: "+2348154095994", optionalAccounts: [])
+
+// 2. Successfully Created a savings account object for customer
+customerObjectTest1.openAccount(openType: AccountType.savings)
+
+// 3. Successfully Created a current account object for customer
+customerObjectTest1.openAccount(openType: AccountType.current)
