@@ -125,9 +125,24 @@ class Customer{
         if openType == AccountType.savings {
             let newSavings = SavingsAccount(id: 1, customerId: 1, accountBalance: 20000, interestRate: 5.0)
             optionalAccounts?.append(newSavings)
+            
+            // 4i. Peform accountBalance() method
+            customerObjectTest1.accountBalance(account: newSavings)
+            
         } else if openType == AccountType.current{
             let newCurrent = CurrentAccount(id: 1, customerId: 1, accountBalance: 30000, interestRate: 5.0)
             optionalAccounts?.append(newCurrent)
+            
+            // 4. Perform all methods on customer object (and it confirm the returned result is the expected)
+            //
+            // 4i. Peform accountBalance() method on customer object
+            customerObjectTest1.accountBalance(account: newCurrent)
+            // 4ii. Peform withdrawal() method
+            customerObjectTest1.withdrawal(account: newCurrent, amount: 50)
+            // 4iii. Peform deposit() method
+            customerObjectTest1.deposit(account: newCurrent, amount: 100)
+            // 4iv. Peform closeAccount() method
+            // customerObjectTest1.closeAccount(account: newCurrent)
         }
         return optionalAccounts
     }
@@ -154,3 +169,6 @@ customerObjectTest1.openAccount(openType: AccountType.savings)
 
 // 3. Successfully Created a current account object for customer
 customerObjectTest1.openAccount(openType: AccountType.current)
+
+// 4. Perform all methods on customer object and confirm if the returned result is the expected result.
+    // Above are 4i , 4ii, 4iii, 4iv (inside the scope of Openaccount)
