@@ -196,3 +196,8 @@ customerObjectTest1.openAccount(openType: AccountType.current)
  charge() method, bonus() methos are good example of abstraction here
  they hide the implenting details and just display the necessary when they are called!!
 */
+
+/* NOTE:
+ Note all types that refers to money is type Int, as is always converted to kobo
+ then when printing it, convert to Naira
+*/
