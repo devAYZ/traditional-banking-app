@@ -121,7 +121,7 @@ class Customer{
     }
     // open account for either saving ot current
     func openAccount(openType: AccountType) -> [Account]?{
-        // check if open type is savings, then open
+        // check if open type is savings, then open. Or check if type is Current, then open
         if openType == AccountType.savings {
             let newSavings = SavingsAccount(id: 1, customerId: 1, accountBalance: 20000, interestRate: 5.0)
             optionalAccounts?.append(newSavings)
@@ -143,3 +143,8 @@ enum AccountType{
     case current
 }
 
+// Mark: Steps to Evaluate---------------------------------------------
+
+// 1. Successfully Created a Customer object
+var customerObjectTest1 = Customer(id: 1, name: "Ayokunle", address: "Iyanapaja", phoneNumber: "07034641582", optionalAccounts: [])
+var customerObjectTest2 = Customer(id: 2, name: "Waheed", address: "Island", phoneNumber: "+2348154095994", optionalAccounts: [])
