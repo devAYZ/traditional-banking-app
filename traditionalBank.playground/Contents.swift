@@ -48,3 +48,21 @@ class Account{
         return toNaira(accountBalance)
     }
 }
+
+// Mark: create the SavingsAccount subclass inheriting from Account class
+class SavingsAccount: Account{
+    
+    // override the interest property, set to 10%
+    override var interestRate: Double{
+        set{}
+        get{
+            let tenPercent = 0.1
+            return tenPercent
+        }
+    }
+    // override the deposit method, call bonus method after each deposit
+    override func deposit(amount: Int) -> Int{
+        accountBalance += toKobo(amount)
+        return bonus()
+    }
+}
